@@ -49,8 +49,8 @@ if($session->is_logged_in()) {
          $user->password = $password;
          $user->email = $email;
          $user->create();
-         echo 'You are successfully registered!<br>';
-?>
+         echo 'You have successfully registered!<br>';
+        ?>
          <a href="login.php">Please Click Here to Login</a>
 <?php
         } else {
@@ -65,16 +65,16 @@ if($session->is_logged_in()) {
 
 <html>
   <head>
-    <title>Mini-Craigslist</title>
+    <title>AdsList</title>
     <link href="main.css" media="all" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
     <div id="header">
-      <h1>Mini-Craigslist</h1>
+      <h1>AdsList</h1>
     </div>
     <div id="main">
-    <h2>Customer User Registration</h2>
+    <h2>Customer Registration</h2>
     <?php echo output_message($message); ?>
 
     <form action="register.php" method="post">

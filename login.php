@@ -6,11 +6,17 @@ require_once('initialize.php');
 require_once('user.php');
 
 $message ="";
-/*
 if($session->is_logged_in()) {
-  redirect_to("index.php");
+ 
+  echo nl2br("You are logged in. Please choose what you want to do  \n");
+  echo '<a href="mini_craigslist.php">Browse Ads</a>';
+  echo nl2br("\n");
+  echo '<a href="form_post.php">Post an Ad</a>';
+  echo nl2br("\n");
+  echo nl2br('<a href="logout.php">Logout</a>');
+ 
 }
-*/
+else {
   if (empty($_POST['username']) or empty($_POST['password'])){
      echo 'Please fill in all the required fields!';
   } else {
@@ -31,7 +37,13 @@ if($session->is_logged_in()) {
          if($session->is_logged_in()) {
            
           echo 'Hi '. $username . ', welcome to Mini-Craiglist!';
-          redirect_to("mini_craigslist.php");
+
+          echo nl2br("You are logged in. Please choose what you want to do  \n");
+          echo '<a href="mini_craigslist.php">Browse Ads</a>';
+          echo nl2br("\n");
+          echo '<a href="form_post.php">Post an Ad</a>';
+          echo nl2br("\n");
+          echo nl2br('<a href="logout.php">Logout</a>');
 
           } else {
            echo 'Please login.';
@@ -49,17 +61,18 @@ if($session->is_logged_in()) {
          $password = "";
        }
    }
+}
 ?>
 
 <html>
   <head>
-    <title>Mini-Craigslist</title>
+    <title>AdsList</title>
     <link href="main.css" media="all" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
     <div id="header">
-      <h1>Mini-Craigslist</h1>
+      <h1>AdsList</h1>
     </div>
     <div id="main">
       <h2>Customer Login</h2>
@@ -89,4 +102,5 @@ if($session->is_logged_in()) {
    </div>
  </body>
 </html>
+<?php if(isset($database)) {$database->close_connection();} ?>
   

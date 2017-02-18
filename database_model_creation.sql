@@ -48,7 +48,7 @@ CREATE TABLE SubCategory (
 CREATE TABLE Posts (
   Post_ID         BIGINT AUTO_INCREMENT PRIMARY KEY,
   Title           VARCHAR(32) NOT NULL,
-  Price           DECIMAL(5,2),
+  Price           DECIMAL(9,2),
   Description     VARCHAR(256) NOT NULL,
   Email           VARCHAR(64) NOT NULL,
   Agreement       TINYINT(1),

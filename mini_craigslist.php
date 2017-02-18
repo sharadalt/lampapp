@@ -7,9 +7,19 @@
 -->
 <?php
 
-
+require_once('initialize.php');
 require_once('database.php');
 require_once('post.php');
+
+if(!$session->is_logged_in()) {
+
+  echo nl2br("You are not logged in. Please Login \n");
+  echo nl2br('<a href="login.php">Login</a>');
+
+}
+
+
+if($session->is_logged_in()) {
 
 function test_input($data) {
     $data = trim($data);
@@ -50,7 +60,7 @@ function test_input($data) {
           $search_str = $search . "%";
           $found_post_arr = Post::find_posts_based_on_str($search_str); 
 
-          echo '<h2>Posted Posts</h2>';
+          echo '<h2>Posted Ads</h2>';
           echo '<table border="1">';
           echo '<tr>';
           echo '<th>Title</th><th>Email</th><th>Price</th><th>SubCategory</th><th>Location</th><th>Image1</th>';
@@ -78,31 +88,43 @@ function test_input($data) {
       }
     }
 
+ }
 }
 
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="styles.css"> 
-        <title>mini-craiglist</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-    </head>
-    <body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css"> 
+    <title>AdsList</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+  </head>
+  <body>
 
-      <h2> Mini-CraigsList </h2>
+    <div style="width:500px;height:300px;background-color:#6B8E23;">
+
+      <h2 style="color:white;" > AdsList </h2>
 
       <?php if(!empty($message)) {echo "<p>{$message}</p>";} ?>
+
+      <?php
+        if($session->is_logged_in()) { 
+          echo nl2br('<a href="logout.php">Logout</a>');
+          echo nl2br("\n");
+        }
+      ?>
+
+
       <p><span class="error">* required fields.</span></p>
        <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
       <p>
 	<p><a href="post_form.php">NewPost</a></p>
-	<p>Search:</p>
-        <form action="craiglist.php" method="post">
-	<p><b><input type="text" class="myinp" name="search"/>
+	<p style="color:white;">Search:</p>
+        <form action="mini_craigslist.php" method="post">
+	<p><b><input type="text" class="myinp" name="search" />
            <input type="Submit" value="Submit" name="submit"/>
            <input type="Reset"/>
         </b></p>
@@ -134,5 +156,6 @@ function test_input($data) {
         </table>
         
       </p>
+    </div>
     </body>
 </html>

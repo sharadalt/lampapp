@@ -20,6 +20,14 @@
 ***********************************************************/
 require_once("initialize.php");
 require_once("post.php");
+
+if (!$session->is_logged_in()) {
+
+  echo 'You have not logged in. Please Login     ';
+  echo '<a href="index.php">Login</a>';
+
+} else {
+
 $errors = array(); //global array
 $upload_errors = array(
   //http://php.net/manual/en/features.file-upload.errors.php
@@ -356,6 +364,7 @@ The following code does Form parameter validations once the form is
       if ($new_post  && $new_post->save()) {
          // comment saved
         echo "New Post record created successfully";
+        echo nl2br('<a href="mini_craigslist.php">Want to browse Ads?</a>'); 
       } else {
          // failed
         $message = "There was an error prevented the post from being saved.";
@@ -365,12 +374,13 @@ The following code does Form parameter validations once the form is
         print_r($errors); 
     } 
  }
+}
 ?>
 
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Min-Craigslist</title>
+    <title>AdsList</title>
     <link rel="stylesheet" type="text/css" href="styles.css"> 
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
@@ -381,7 +391,16 @@ The following code does Form parameter validations once the form is
 <p>
   <?php if(!empty($message)) {echo "<p>{$message}</p>";} ?>
   <p><span class="error">* required fields.</span></p>
+   <div style="width:500px;height:800px;background-color:#6B8E23; color:white">
+
   <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+    <?php
+         if($session->is_logged_in()) {
+           echo nl2br('<a href="logout.php">Logout</a>');
+           echo nl2br("\n");
+         }
+     ?>
+
     <label>Sub-Category: </label>
     <?php //drop down list for SubCategory
       global $database;
@@ -407,38 +426,39 @@ The following code does Form parameter validations once the form is
       ?>
      <span class="error">* <?php echo $location_err;?></span>
 
-     <p>Title: <input id="title" type="text" name="Title" />
+     <p style="color:white">Title: <input id="title" type="text" name="Title"></p>
      <span class="error">* <?php echo $title_err;?></span>
-     <p>Price: <input id="price" type="text" name="Price" />
+     <p style="color:white">Price: <input id="price" type="text" name="Price"></p>
      <span class="error">* <?php echo $price_err;?></span>
-     <p> Description: <textarea id="desc" type="textarea" name="Description"> </textarea></p>
+     <p style="color:white"> Description: <textarea id="desc" type="textarea" name="Description"> </textarea></p>
      <span class="error">* <?php echo $description_err;?></span>
-     <p>Email: <input id="email" type="text" name="Email" />
+     <p style="color:white">Email: <input id="email" type="text" name="Email" />
      <span class="error">* <?php echo $email_err;?></span>
-     <p>Confirm Email: <input id="confemail" type="text" name="Confirm_Email" />
+     <p style="color:white">Confirm Email: <input id="confemail" type="text" name="Confirm_Email" />
      <span class="error">* <?php echo $confirm_email_err;?></span>
      <br>
      <br>
-     <label style="color:blue;">I agree with terms and conditions </label>
+     <label style="color:white;">I agree with terms and conditions </label>
      <input name="Agreement" type="checkbox" value="1" />
      <span class="error">* <?php echo $agreement_err;?></span>
      <br>
      <br>
-     <label style="color:blue;">Optional fields: </label>
+     <label style="color:white;">Optional fields: </label>
      <br>
      <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
-     <label style="color:blue;">Image 1 (max 5 MB): <input id="Image1" name="Image1" type="file" />
+     <label style="color:white;">Image 1 (max 5 MB): <input id="Image1" name="Image1" type="file" />
      <br>
-     <label style="color:blue;">Image 2 (max 5 MB): <input id="Image2" name="Image2" type="file" />
+     <label style="color:white;">Image 2 (max 5 MB): <input id="Image2" name="Image2" type="file" />
      <br>
-     <label style="color:blue;">Image 3 (max 5 MB): <input id="Image3" name="Image3" type="file" />
+     <label style="color:white;">Image 3 (max 5 MB): <input id="Image3" name="Image3" type="file" />
      <br>
-     <label style="color:blue;">Image 4 (max 5 MB): <input id="Image4" name="Image4" type="file" />
+     <label style="color:white;">Image 4 (max 5 MB): <input id="Image4" name="Image4" type="file" />
 
      <p><input id="sub" value="Submit" type="submit" name="submit" onclick="return confirm('Please confirm the values before you submit');"/>
      <input id="res" type="Reset" value="Reset"></p>
 
    </form>
+ </div>
 </p>
 
 </body>

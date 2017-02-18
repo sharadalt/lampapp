@@ -10,7 +10,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css"> 
-        <title>AdsList</title>
+        <title>mini-craiglist</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
@@ -18,11 +18,11 @@
     <body>
 
       <div class="boxed">
-      <h2> AdsList </h2>
+      <h2> Mini-CraigsList </h2>
       <p>
         <h3>Currently Serving the 3 Countries with 3 locations each</h3>
           
-         <table style="color:white";>
+         <table>
           <tr>
                 <th>USA</th>
                 <th>India</th>
@@ -44,14 +44,14 @@
            <tr>
                 <td>Denver</td>
                 <td>Mumbai</td>
-                <td>Arboga</td>
+                <td><a href="arboga_list.php">Arboga</a></td>
           </tr>
         </table>
 
           <p><br /><br /><br /><br /><a href="about_us.html">About Us</a></p>
 	  <p><a href="terms_and_conditions.html">Terms and Conditions</a></p>
           <p><a href="help.html">Help</a></p>
-          <p><a href="index.php">Check it Out</a></p>
+          <p><a href="index.php">Enter the Arena</a></p>
 
       </p>
       </div>

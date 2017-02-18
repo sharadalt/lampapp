@@ -19,21 +19,21 @@
 
 
 html {height: 100%; width:100%; }
-body {height: 100%; width:100%; margin: 0; padding: 0; border: 0; background:#FFFFFF;
+body {height: 100%; width:100%; margin: 0; padding: 0; border: 0; background:#6B8E23;
    font: 13px/15px Verdana,Arial,Helvetica,sans-serif;}
 img {border: none;}
 table,tr,td,tr {border-collapse: collapse; vertical-align:top; text-align:left;
    font: 13px/15px Verdana,Arial,Helvetica,sans-serif;}
     a {color: #8D0D19;}
 
-#header {height: 70px; text-align: left; background: #1A446C; color: D4E6F4;}
+#header {height: 70px; text-align: left; background: #6B8E23; color: D4E6F4;}
 #header h1 {padding: 1em;}
 
 /* Note IE 5 & 6 won't understand min-height */
-#main {min-height: 600px; width: 100%; background: #EEE4B9; padding: 2em;}
+#main {min-height: 600px; width: 100%; background: #6B8E23; padding: 2em;}
 
 #footer {height: 2em; padding: 1em; text-align: center;
-         background: #1A446C; color: #D4E6F4; }
+         background: #6B8E23; color: #D4E6F4; }
 
 table.bordered tr th, table.bordered tr td { border: 1px solid #000000; }
 
@@ -44,7 +44,7 @@ p {
 }
 
 a {
-  color:blue;
+  color:white;
 }
 
 .myinp {
@@ -63,12 +63,11 @@ table {
 }
 
 th {
-  color: black;
+  color:black ;
 }
 
 
 td, label, #sub, #res, p {
-  color: blue
 }
 
 #subcat, #locn {
@@ -105,6 +104,8 @@ td, label, #sub, #res, p {
 .boxed {
   border: 5px solid ;
   width: 50%;
+  background-color: #6B8E23;
+  color: white;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -133,7 +134,7 @@ td, label, #sub, #res, p {
 }
 
 html {height: 100%; width:100%; }
-body {height: 100%; width:100%; margin: 0; padding: 0; border: 0; background:#FFFFFF;
+body {height: 100%; width:100%; margin: 0; padding: 0; border: 0; background:#6B8E23;
    font: 13px/15px Verdana,Arial,Helvetica,sans-serif;}
 img {border: none;}
 
